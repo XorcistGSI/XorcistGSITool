@@ -1,0 +1,32 @@
+name: Можули
+
+on:
+    workflow_dispatch:
+        inputs:
+            ROM_URL:
+                description: 'ROM_URL'
+                required: true
+                default: 'https://github.com/FoxetGSI/Builds/releases/download/06is1527/Generic-AB-13-2025-06-02-FoxetGSI.7z'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+        - name: Download & Patch
+          run: |
+                apt update && apt install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract rename liblzma-dev python-pip brotli lz4 protobuf-compiler git gawk
+                git clone https://github.com/RadGoodNow/YaEbuEbuGSITool/ && cd YaEbuEbuGSITool
+                mkdir -p DownloadedROMs
+                mkdir -p UnpackedROMs
+                mkdir -p UnpackedROMs/system                
+                bash LinkToGSI.sh ${{github.event.inputs.ROM_URL}} Pixel
+        - name: Upload to Release
+          uses: softprops/action-gh-release@v1
+          with:
+            files: | 
+              Output/*.img
+            name: FoxetGSI-${{ github.run_id }}
+            tag_name: ${{ github.run_id }}
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
