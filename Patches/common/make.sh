@@ -94,6 +94,7 @@ rm -rf $BASE_DIR/system/etc/init/update_verifier.rc
 rm -rf $BASE_DIR/system/etc/init/cppreopts.rc
 rm -rf $BASE_DIR/system/etc/init/otapreopt.rc
 
+rm -rf $system_ext/apex/com.android.vndk.v*
 mv $system_ext/apex/* $BASE_DIR/system/apex
 rm -rf $system_ext/apex
 
