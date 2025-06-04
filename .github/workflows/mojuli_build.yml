@@ -21,13 +21,13 @@ jobs:
                 mkdir -p UnpackedROMs
                 mkdir -p UnpackedROMs/system                
                 sudo bash LinkToGSI.sh ${{github.event.inputs.ROM_URL}} Pixel
-                7z a -v500m -tzip FoxetGSI.zip Output/*.img
+                7z a -v500m -tzip FoxetGSIROM.zip Output/*.img
         - name: Upload to Release
           uses: softprops/action-gh-release@v1
           with:
             files: | 
-              YaEbuEbuGSITool/FoxetGSI.*
-              YaEbuEbuGSITool/Output/FoxetGSI.*
+              YaEbuEbuGSITool/FoxetGSIROM.*
+              YaEbuEbuGSITool/Output/FoxetGSIROM.*
             name: FoxetGSI-${{ github.run_id }}
             tag_name: ${{ github.run_id }}
           env:
