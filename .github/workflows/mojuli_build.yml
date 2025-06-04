@@ -26,7 +26,7 @@ jobs:
           uses: softprops/action-gh-release@v1
           with:
             files: | 
-              YaEbuEbuGSITool/Output/*.0*
+              YaEbuEbuGSITool/Output/*
             name: FoxetGSI-${{ github.run_id }}
             tag_name: ${{ github.run_id }}
           env:
