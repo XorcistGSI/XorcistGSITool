@@ -15,12 +15,12 @@ jobs:
         steps:
         - name: Download & Patch
           run: |
-                apt update && apt install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract rename liblzma-dev python-pip brotli lz4 protobuf-compiler git gawk
+                sudo apt update && apt install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract rename liblzma-dev python-pip brotli lz4 protobuf-compiler git gawk
                 git clone https://github.com/RadGoodNow/YaEbuEbuGSITool/ && cd YaEbuEbuGSITool
                 mkdir -p DownloadedROMs
                 mkdir -p UnpackedROMs
                 mkdir -p UnpackedROMs/system                
-                bash LinkToGSI.sh ${{github.event.inputs.ROM_URL}} Pixel
+                sudo bash LinkToGSI.sh ${{github.event.inputs.ROM_URL}} Pixel
         - name: Upload to Release
           uses: softprops/action-gh-release@v1
           with:
