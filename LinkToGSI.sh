@@ -53,7 +53,7 @@ rm -rf UnpackedROMs
 mkdir -p DownloadedROMs
 mkdir -p UnpackedROMs
 
-wget -P "DownloadedROMs/" "$ROM_LINK"
+wget -nv -P "DownloadedROMs/" "$ROM_LINK"
 
 Tools/Firmware_extractor/extractor.sh "DownloadedROMs/"* "UnpackedROMs/"
 
