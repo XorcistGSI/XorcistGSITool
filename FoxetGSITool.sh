@@ -106,6 +106,6 @@ fi
 current_date=$(date +"%Y-%m-%d")
 
 echo "Create $ROM_TYPE-AB-$android_version-$current_date.img"
+rm -rf "Output"
 mkdir -p "Output"
-rm -rf "Output/$ROM_TYPE-AB-$android_version-$current_date.img"
 $(pwd)/Tools/mkimage/mkimage.sh "$BASE_DIR" "Output/$ROM_TYPE-AB-$android_version-$current_date-FoxetGSI.img"
