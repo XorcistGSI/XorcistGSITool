@@ -15,7 +15,7 @@ jobs:
         steps:
         - name: Download & Patch
           run: |
-                sudo apt update && apt install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract rename liblzma-dev python-pip brotli lz4 protobuf-compiler git gawk
+                sudo apt update && sudo apt install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract rename liblzma-dev python-pip brotli lz4 protobuf-compiler git gawk
                 git clone https://github.com/RadGoodNow/YaEbuEbuGSITool/ && cd YaEbuEbuGSITool
                 mkdir -p DownloadedROMs
                 mkdir -p UnpackedROMs
