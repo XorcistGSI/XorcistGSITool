@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR=$(dirname "$0")
-BASE_DIR="$1"
+BASE_DIR=$1
 
 if [ -d "$BASE_DIR/product" ] && [ ! -L "$BASE_DIR/product" ]; then
     product="$BASE_DIR/product"
