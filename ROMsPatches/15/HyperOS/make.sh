@@ -95,11 +95,57 @@ rsync -ra $SCRIPT_DIR/OpenCamera $product/priv-app/
 # Switch to AOSP init
 rsync -ra $SCRIPT_DIR/bin/ $BASE_DIR/system/bin/
 
-# Lag fix
+# Lag Fix
 echo "ro.surface_flinger.use_content_detection_for_refresh_rate=true" >> $BASE_DIR/system/build.prop
 echo "ro.surface_flinger.set_idle_timer_ms=2147483647" >> $BASE_DIR/system/build.prop
 echo "ro.surface_flinger.set_touch_timer_ms=2147483647" >> $BASE_DIR/system/build.prop
 echo "ro.surface_flinger.set_display_power_timer_ms=2147483647" >> $BASE_DIR/system/build.prop
+# Lag Fix - Disable CoreSight
+echo "persist.debug.coresight.config=" >> $BASE_DIR/system/build.prop
+# Lag Fix - Misc ART optimizations
+echo "dalvik.vm.foreground-heap-growth-multiplier=2.5" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.heapgrowthlimit=512m" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.heapmaxfree=32m" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.heapminfree=512k" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.heapsize=512m" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.heapstartsize=2m" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.heapstartsize=2m" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.heaptargetutilization=0.8" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.dex2oat-minidebuginfo=false" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.minidebuginfo=false" >> $BASE_DIR/system/build.prop
+echo "persist.device_config.runtime_native.usap_pool_enabled=true" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.usap_pool_enabled=true" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.usap_pool_size_max=3" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.usap_pool_size_min=1" >> $BASE_DIR/system/build.prop
+echo "dalvik.vm.usap_refill_threshold=1" >> $BASE_DIR/system/build.prop
+# Lag Fix - Debug
+echo "persist.sys.debug.app.mtbf_test=false" >> $BASE_DIR/system/build.prop
+echo "persist.sys.perfdebug.monitor.enable=false" >> $BASE_DIR/system/build.prop
+# Lag Fix - Network
+echo "persist.sys.miuitcptracker.ctrl=false" >> $BASE_DIR/system/build.prop
+echo "vendor.miui.wifi.p2p.enable160m=true" >> $BASE_DIR/system/build.prop
+# Lag Fix - High Precision Positioning
+echo "persist.vendor.gnss.hpLocSetUI=true" >> $BASE_DIR/system/build.prop
+# Lag Fix - Faster game loading
+echo "debug.game.video.support=true" >> $BASE_DIR/system/build.prop
+# Lag Fix - AppCompact
+echo "persist.sys.use_boot_compact=false" >> $BASE_DIR/system/build.prop
+# Lag Fix - Framepacing
+echo "vendor.perf.framepacing.enable=false" >> $BASE_DIR/system/build.prop
+# Lag Fix - Display
+echo "persist.sys.smartpower.display_camera_fps_enable=false" >> $BASE_DIR/system/build.prop
+echo "ro.vendor.touch.touchscheduler.enable=false" >> $BASE_DIR/system/build.prop
+# Lag Fix - Prefetchers
+echo "persist.mm.enable.prefetch=false" >> $BASE_DIR/system/build.prop
+echo "persist.sys.dynamic_usap_enabled=false" >> $BASE_DIR/system/build.prop
+echo "persist.sys.preload.enable=false" >> $BASE_DIR/system/build.prop
+echo "persist.sys.prestart.feedback.enable=false" >> $BASE_DIR/system/build.prop
+echo "persist.sys.prestart.proc=false" >> $BASE_DIR/system/build.prop
+echo "persist.sys.stability.iorapEnable=false" >> $BASE_DIR/system/build.prop
+# Lag Fix - Misc
+echo "persist.sys.fboservice.ctrl=true" >> $BASE_DIR/system/build.prop
+echo "persist.sys.stability.fbo_hal_stop=false" >> $BASE_DIR/system/build.prop
+echo "persist.sys.support_ultra_hdr=true" >> $BASE_DIR/system/build.prop
 
 # Remove mi_ext partition
 if [ -d "$BASE_DIR/mi_ext/" ]; then
