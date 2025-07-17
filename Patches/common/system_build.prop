@@ -1,16 +1,13 @@
+ro.build.system_root_image=true
 ro.support_one_handed_mode=true
-ro.apex.updatable=true
 persist.sys.binary_xml=false
 persist.logd.logpersistd.buffer=0
 ro.opengles.version=196610
 persist.sys.disable_rescue=true
 ro.control_privapp_permissions=disable
 ro.cp_system_other_odex=0
+ro.oem_unlock_enabled=1
 ro.nnapi.extensions.deny_on_product=true
-persist.android.strictmode=0
-ro.kernel.android.checkjni=0
-ro.kernel.checkjni=0
-ro.config.nocheckin=1
 
 # Force ADB
 persist.service.adb.enable=1
@@ -21,4 +18,13 @@ ro.secure=0
 ro.debuggable=1
 
 # Some devices have sdcardfs kernel panicing on 8.0, Disable for everyone for the moment
-ro.sys.sdcardfs=0
+ro.sys.sdcardfs=0 
+
+# for OneUI
+ro.config.knox=false
+ro.config.dmverity=false
+
+ro.apex.updatable=true
+
+# MIUI Fix
+ro.miui.product.home=com.miui.home

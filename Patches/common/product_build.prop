@@ -1,3 +1,4 @@
+ro.miui.product.home=com.miui.home
 ro.cp_system_other_odex=0
 ro.nnapi.extensions.deny_on_product=true
 ro.lmk.kill_heaviest_task=true
@@ -17,7 +18,7 @@ debug.sf.high_fps_early_app_phase_offset_ns=
 debug.sf.high_fps_early_gl_app_phase_offset_ns=
 qemu.hw.mainkeys=0
 ro.opa.eligible_device=true
-ro.setupwizard.mode=DISABLED
+ro.setupwizard.mode=OPTIONAL
 ro.vndk.lite=false
 persist.sys.disable_rescue=true
 ro.control_privapp_permissions=disable

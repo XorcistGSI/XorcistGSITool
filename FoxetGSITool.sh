@@ -73,6 +73,9 @@ case "$SDK_VERSION" in
   35)
     android_version="15"
     ;;
+  36)
+    android_version="16"
+    ;;
   *)
     echo "Error: Unsupported SDK version $SDK_VERSION"
     exit 1
@@ -102,6 +105,17 @@ if [ -n "$(ls -A "$BASE_DIR/vendor" 2>/dev/null)" ]; then
   Tools/vendoroverlay/addvo.sh "$BASE_DIR"
   rm -rf "$BASE_DIR/vendor/"*
 fi
+
+if [[ $(grep "ro.build.display.id" "$BASE_DIR/system/build.prop") ]]; then
+    displayid="ro.build.display.id"
+elif [[ $(grep "ro.system.build.id" "$BASE_DIR/system/build.prop") ]]; then
+    displayid="ro.system.build.id"
+elif [[ $(grep "ro.build.id" "$BASE_DIR/system/build.prop") ]]; then
+    displayid="ro.build.id"
+fi
+displayid2=$(echo "$displayid" | sed 's/\./\\./g')
+bdisplay=$(grep "$displayid" "$BASE_DIR/system/build.prop" | sed 's/\./\\./g; s:/:\\/:g; s/\,/\\,/g; s/\ /\\ /g')
+sed -i "s/$bdisplay/$displayid2=Built\.by\.defnotegor\.UsingFoxetGSI/" "$BASE_DIR/system/build.prop"
 
 current_date=$(date +"%Y-%m-%d")
 

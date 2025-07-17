@@ -14,5 +14,6 @@ fi
 
 # PHH Patches
 rsync -ra "$SCRIPT_DIR/system/" "$BASE_DIR/system/"
+sudo rm -rf $SCRIPT_DIR/.recycle/
 mkdir -p "$product/overlay"
 rsync -ra "$SCRIPT_DIR/overlay/" "$product/overlay/"
