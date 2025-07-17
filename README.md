@@ -5,7 +5,7 @@ Telegram channel: https://t.me/OfficialOriginGSI
 
 ### Download tools
 ```
-git clone https://github.com/FoxetGSI/FoxetGSITool.git
+git clone https://github.com/defnotegor/OriginGSITool.git
 cd FoxetGSITool
 ```
 
