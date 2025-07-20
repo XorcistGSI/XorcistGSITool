@@ -6,7 +6,7 @@ Telegram channel: https://t.me/OfficialOriginGSI
 ### Download tools
 ```
 git clone https://github.com/defnotegor/OriginGSITool.git
-cd FoxetGSITool
+cd OriginGSITool
 ```
 
 ### For setting up requirements
