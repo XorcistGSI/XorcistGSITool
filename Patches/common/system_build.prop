@@ -24,7 +24,13 @@ ro.sys.sdcardfs=0
 ro.config.knox=false
 ro.config.dmverity=false
 
+# for ZenUI
+ro.bluetooth.library_name=libbluetooth_qti.so
 ro.apex.updatable=true
 
-# MIUI Fix
+# for MIUI
 ro.miui.product.home=com.miui.home
+
+# for NothingOS
+ro.boot.slot_suffix=a
+ro.build.version.type=origingsi
