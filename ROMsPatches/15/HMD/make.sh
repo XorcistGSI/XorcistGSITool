@@ -102,4 +102,8 @@ rm -rf $system_ext/framework/com.android.hotwordenrollment*
 rm -rf $system_ext/framework/oat/arm/com.android.hotwordenrollment*
 rm -rf $system_ext/framework/oat/arm64/com.android.hotwordenrollment*
 
+# Switch to AOSP init
+rsync -ra $SCRIPT_DIR/bin/ $BASE_DIR/system/bin
 
+# Switch to AOSP lib64
+rsync -ra $SCRIPT_DIR/lib64/ $BASE_DIR/system/lib64
